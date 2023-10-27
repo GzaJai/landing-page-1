@@ -2,23 +2,25 @@
 import React, {useState} from "react";
 import Button from "@/components/Button";
 import { BiMenu } from "react-icons/bi";
+import SideBar from "./SideBar";
 
 const Navbar = () => {
 
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
-  const handleClick = () =>{
-
+  const handleSidebar = () =>{
+    setIsSidebarOpen(!isSidebarOpen)
   }
 
   return (
     <>
       <header className="flex bg-indigo-500 justify-between px-10 py-4">
-        <h1 className="text-2xl font-semibold text-white">Librería Silver</h1>
-        <Button onClick={()=>{console.log("hola")}} className="flex  text-white text-3xl">
+        <Button onClick={handleSidebar} className="flex  text-white text-3xl">
           <BiMenu />
         </Button>
+        <h1 className="text-2xl font-semibold text-white">Librería Silver</h1>
       </header>
+        <SideBar estado={isSidebarOpen}/>
     </>
   );
 };
